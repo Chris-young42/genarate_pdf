@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: resumeforge-backend
+    ports:
+      - "3001:3001"
+    environment:
+      - CORS_ORIGIN=http://localhost:3000
+    volumes:
+      - ./data:/app/data
+    networks:
+      - resume-net
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:3001/api/resumes
+    container_name: resumeforge-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - resume-net
+    restart: unless-stopped
+
+networks:
+  resume-net:
+    driver: bridge
