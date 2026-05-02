@@ -27,8 +27,7 @@ import {
   Home,
 } from 'lucide-react';
 
-const API_BASE =
-  process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api/resumes';
+const API_BASE = '/api/resumes';
 
 interface Resume {
   id: number;

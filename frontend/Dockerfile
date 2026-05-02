@@ -3,8 +3,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
-ARG NEXT_PUBLIC_API_URL=http://localhost:3001/api/resumes
-ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+ENV BACKEND_URL=http://backend:3001
 RUN npm run build
 
 FROM node:20-alpine AS production
@@ -16,4 +15,5 @@ COPY --from=build /app/next.config.js ./
 RUN npm ci --omit=dev
 
 EXPOSE 3000
+ENV BACKEND_URL=http://backend:3001
 CMD ["npm", "start"]
