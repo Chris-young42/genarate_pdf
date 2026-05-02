@@ -20,7 +20,6 @@ import {
   ChevronDown,
   Menu,
   X,
-  Sparkles,
   FileEdit,
   ChevronRight,
   Loader2,

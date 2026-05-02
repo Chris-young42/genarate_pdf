@@ -24,6 +24,9 @@ data/
 .DS_Store
 Thumbs.db
 
+# Claude Code local settings
+.claude/settings.local.json
+
 # logs
 *.log
 npm-debug.log*
