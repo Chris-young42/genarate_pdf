@@ -24,6 +24,10 @@ data/
 .DS_Store
 Thumbs.db
 
+# root package files (project is not monorepo root)
+/package.json
+/package-lock.json
+
 # Claude Code local settings
 .claude/settings.local.json
 

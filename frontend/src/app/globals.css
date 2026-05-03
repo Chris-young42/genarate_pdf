@@ -112,9 +112,6 @@ body {
   color: #3C3C43;
   font-size: 0.9em;
 }
-.resume-preview li::marker {
-  color: #0066CC;
-}
 
 .resume-preview strong {
   color: #1D1D1F;
