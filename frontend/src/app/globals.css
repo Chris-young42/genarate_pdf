@@ -156,6 +156,7 @@ body {
   border-radius: 3px;
   font-size: 0.88em;
   color: #0066CC;
+  vertical-align: baseline;
 }
 
 .resume-preview pre {
