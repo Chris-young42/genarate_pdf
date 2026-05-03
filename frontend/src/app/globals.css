@@ -147,14 +147,12 @@ body {
 }
 
 .resume-preview code {
-  display: inline-block;
-  vertical-align: baseline;
+  display: inline;
   background: rgba(0, 0, 0, 0.04);
-  padding: 1px 5px;
-  border-radius: 4px;
+  padding: 1px 4px;
+  border-radius: 3px;
   font-size: 0.88em;
   color: #0066CC;
-  line-height: 1.3;
   letter-spacing: 0;
 }
 
