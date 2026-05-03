@@ -66,6 +66,10 @@ body {
   margin: 0 auto;
   padding: 9mm 15mm;
   min-height: 100%;
+  overflow-wrap: break-word;
+}
+.resume-preview * {
+  overflow-wrap: break-word;
 }
 
 .resume-preview h1 {
@@ -147,13 +151,11 @@ body {
 }
 
 .resume-preview code {
-  display: inline;
   background: rgba(0, 0, 0, 0.04);
-  padding: 1px 4px;
+  padding: 0 4px;
   border-radius: 3px;
   font-size: 0.88em;
   color: #0066CC;
-  letter-spacing: 0;
 }
 
 .resume-preview pre {
