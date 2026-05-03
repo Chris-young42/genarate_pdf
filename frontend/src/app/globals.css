@@ -56,7 +56,7 @@ body {
   color: #86868B;
 }
 
-/* Resume preview — A4 standard layout */
+/* Resume preview — dense A4 layout */
 .resume-preview {
   font-family: 'Inter', 'SF Pro Display', 'PingFang SC', 'Helvetica Neue', sans-serif;
   background: #ffffff;
@@ -64,17 +64,15 @@ body {
   max-width: 210mm;
   width: 100%;
   margin: 0 auto;
-  padding: 14mm 18mm;
+  padding: 9mm 15mm;
   min-height: 100%;
-  border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
 .resume-preview h1 {
   font-size: 1.75em;
   font-weight: 600;
   color: #1D1D1F;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
   letter-spacing: -0.5px;
 }
 
@@ -82,9 +80,9 @@ body {
   font-size: 1.1em;
   font-weight: 600;
   color: #1D1D1F;
-  margin-top: 22px;
-  margin-bottom: 8px;
-  padding-bottom: 5px;
+  margin-top: 18px;
+  margin-bottom: 6px;
+  padding-bottom: 4px;
   border-bottom: 1.5px solid rgba(0, 0, 0, 0.08);
 }
 
@@ -92,27 +90,27 @@ body {
   font-size: 0.95em;
   font-weight: 600;
   color: #1D1D1F;
-  margin-top: 12px;
-  margin-bottom: 3px;
+  margin-top: 10px;
+  margin-bottom: 2px;
 }
 
 .resume-preview p {
-  margin-bottom: 6px;
-  line-height: 1.55;
+  margin-bottom: 4px;
+  line-height: 1.45;
   color: #3C3C43;
-  font-size: 0.92em;
+  font-size: 0.9em;
 }
 
 .resume-preview ul,
 .resume-preview ol {
-  margin: 4px 0 12px 0;
+  margin: 3px 0 10px 0;
   padding-left: 22px;
 }
 .resume-preview li {
-  margin-bottom: 3px;
-  line-height: 1.5;
+  margin-bottom: 2px;
+  line-height: 1.4;
   color: #3C3C43;
-  font-size: 0.92em;
+  font-size: 0.9em;
 }
 .resume-preview li::marker {
   color: #0066CC;
@@ -138,17 +136,17 @@ body {
   border: none;
   height: 1px;
   background: rgba(0, 0, 0, 0.08);
-  margin: 16px 0;
+  margin: 12px 0;
 }
 
 .resume-preview blockquote {
   border-left: 3px solid rgba(0, 0, 0, 0.12);
-  padding: 6px 14px;
-  margin: 12px 0;
+  padding: 4px 12px;
+  margin: 10px 0;
   background: rgba(0, 0, 0, 0.02);
   color: #86868B;
   font-style: italic;
-  font-size: 0.92em;
+  font-size: 0.9em;
 }
 
 .resume-preview code {

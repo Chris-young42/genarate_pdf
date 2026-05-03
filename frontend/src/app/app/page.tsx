@@ -6,8 +6,6 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import { nameToEmoji } from 'gemoji';
 import { visit } from 'unist-util-visit';
-import { jsPDF } from 'jspdf';
-import html2canvas from 'html2canvas';
 import Link from 'next/link';
 import type { Root, Text as MdastText, Paragraph, BlockContent } from 'mdast';
 import type { Node } from 'unist';
@@ -401,30 +399,61 @@ export default function EditorPage(): JSX.Element {
     [currentId, handleNew, fetchResumes],
   );
 
-  const handleExportPDF = useCallback(async (): Promise<void> => {
-    if (!previewRef.current) {
-      return;
+  const handleExportPDF = useCallback((): void => {
+    if (!previewRef.current) return;
+    setExportOpen(false);
+
+    const styles = Array.from(document.querySelectorAll('style, link[rel="stylesheet"]'))
+      .map((el) => el.outerHTML)
+      .join('\n');
+
+    const html = previewRef.current.outerHTML;
+
+    const printWindow = window.open('', '_blank', 'width=1024,height=768');
+    if (!printWindow) return;
+
+    printWindow.document.write(`<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>${title}</title>
+  ${styles}
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #fff;
+      display: flex;
+      justify-content: center;
     }
-    try {
-      const canvas = await html2canvas(previewRef.current, {
-        backgroundColor: '#ffffff',
-        scale: 2,
-        useCORS: true,
-        logging: false,
-        windowWidth: previewRef.current.scrollWidth,
-        windowHeight: previewRef.current.scrollHeight,
-      });
-      const imgData = canvas.toDataURL('image/png');
-      const pageWidth = 210;
-      const imgWidth = pageWidth;
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-      const pdf = new jsPDF('p', 'mm', [pageWidth, imgHeight]);
-      pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight, undefined, 'SLOW');
-      pdf.save(`${title}.pdf`);
-      setExportOpen(false);
-    } catch {
-      console.error('PDF export failed');
+    .resume-preview {
+      max-width: 210mm;
+      width: 100%;
+      margin: 0;
+      border-radius: 0;
+      box-shadow: none;
     }
+    @media print {
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>${html}</body>
+</html>`);
+    printWindow.document.close();
+    printWindow.focus();
+
+    printWindow.onload = () => {
+      setTimeout(() => {
+        printWindow.print();
+      }, 400);
+    };
   }, [title]);
 
   const handleExportMD = useCallback((): void => {
