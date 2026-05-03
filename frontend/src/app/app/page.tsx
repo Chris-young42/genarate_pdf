@@ -406,17 +406,30 @@ export default function EditorPage(): JSX.Element {
     setExportOpen(false);
 
     try {
-      const el = previewRef.current;
-      const canvas = await html2canvas(el, {
+      // Clone preview into a fixed-A4-width off-screen container
+      const clone = previewRef.current.cloneNode(true) as HTMLElement;
+      const wrapper = document.createElement('div');
+      wrapper.style.cssText =
+        'position:fixed;left:-9999px;top:0;width:794px;background:#fff;';
+      wrapper.appendChild(clone);
+      document.body.appendChild(wrapper);
+
+      // Force the clone to render at exactly 794px (210mm @ 96dpi)
+      clone.style.maxWidth = '794px';
+      clone.style.width = '794px';
+      clone.style.margin = '0';
+      clone.style.borderRadius = '0';
+      clone.style.boxShadow = 'none';
+
+      const canvas = await html2canvas(clone, {
         backgroundColor: '#ffffff',
-        scale: 3,
+        scale: 2,
         useCORS: true,
         logging: false,
-        width: el.scrollWidth,
-        height: el.scrollHeight,
-        windowWidth: el.scrollWidth,
-        windowHeight: el.scrollHeight,
       });
+
+      document.body.removeChild(wrapper);
+
       const imgData = canvas.toDataURL('image/png');
       const pageWidth = 210;
       const imgWidth = pageWidth;
