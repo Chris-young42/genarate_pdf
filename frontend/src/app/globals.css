@@ -56,7 +56,7 @@ body {
   color: #86868B;
 }
 
-/* Resume preview — A4 width */
+/* Resume preview — A4 standard layout */
 .resume-preview {
   font-family: 'Inter', 'SF Pro Display', 'PingFang SC', 'Helvetica Neue', sans-serif;
   background: #ffffff;
@@ -64,14 +64,14 @@ body {
   max-width: 210mm;
   width: 100%;
   margin: 0 auto;
-  padding: 48px 52px;
+  padding: 14mm 18mm;
   min-height: 100%;
   border-radius: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
 .resume-preview h1 {
-  font-size: 2em;
+  font-size: 1.75em;
   font-weight: 600;
   color: #1D1D1F;
   margin-bottom: 4px;
@@ -79,40 +79,40 @@ body {
 }
 
 .resume-preview h2 {
-  font-size: 1.15em;
+  font-size: 1.1em;
   font-weight: 600;
   color: #1D1D1F;
-  margin-top: 28px;
-  margin-bottom: 10px;
-  padding-bottom: 6px;
+  margin-top: 22px;
+  margin-bottom: 8px;
+  padding-bottom: 5px;
   border-bottom: 1.5px solid rgba(0, 0, 0, 0.08);
 }
 
 .resume-preview h3 {
-  font-size: 1em;
+  font-size: 0.95em;
   font-weight: 600;
   color: #1D1D1F;
-  margin-top: 14px;
-  margin-bottom: 4px;
+  margin-top: 12px;
+  margin-bottom: 3px;
 }
 
 .resume-preview p {
-  margin-bottom: 8px;
-  line-height: 1.7;
+  margin-bottom: 6px;
+  line-height: 1.55;
   color: #3C3C43;
-  font-size: 0.95em;
+  font-size: 0.92em;
 }
 
 .resume-preview ul,
 .resume-preview ol {
-  margin: 6px 0 14px 0;
+  margin: 4px 0 12px 0;
   padding-left: 22px;
 }
 .resume-preview li {
-  margin-bottom: 4px;
-  line-height: 1.6;
+  margin-bottom: 3px;
+  line-height: 1.5;
   color: #3C3C43;
-  font-size: 0.95em;
+  font-size: 0.92em;
 }
 .resume-preview li::marker {
   color: #0066CC;
@@ -138,25 +138,29 @@ body {
   border: none;
   height: 1px;
   background: rgba(0, 0, 0, 0.08);
-  margin: 20px 0;
+  margin: 16px 0;
 }
 
 .resume-preview blockquote {
   border-left: 3px solid rgba(0, 0, 0, 0.12);
-  padding: 8px 14px;
-  margin: 14px 0;
+  padding: 6px 14px;
+  margin: 12px 0;
   background: rgba(0, 0, 0, 0.02);
   color: #86868B;
   font-style: italic;
-  font-size: 0.95em;
+  font-size: 0.92em;
 }
 
 .resume-preview code {
+  display: inline-block;
+  vertical-align: baseline;
   background: rgba(0, 0, 0, 0.04);
-  padding: 2px 5px;
+  padding: 1px 5px;
   border-radius: 4px;
   font-size: 0.88em;
   color: #0066CC;
+  line-height: 1.3;
+  letter-spacing: 0;
 }
 
 .resume-preview pre {
