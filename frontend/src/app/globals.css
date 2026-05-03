@@ -56,11 +56,14 @@ body {
   color: #86868B;
 }
 
-/* Resume preview */
+/* Resume preview — A4 width */
 .resume-preview {
   font-family: 'Inter', 'SF Pro Display', 'PingFang SC', 'Helvetica Neue', sans-serif;
   background: #ffffff;
   color: #1D1D1F;
+  max-width: 210mm;
+  width: 100%;
+  margin: 0 auto;
   padding: 48px 52px;
   min-height: 100%;
   border-radius: 20px;
