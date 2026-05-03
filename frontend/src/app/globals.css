@@ -125,12 +125,13 @@ body {
 
 .resume-preview a {
   color: #0066CC;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(0, 102, 204, 0.2);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(0, 102, 204, 0.25);
 }
 .resume-preview a:hover {
   color: #0077ED;
-  border-bottom-color: #0077ED;
+  text-decoration-color: #0077ED;
 }
 
 .resume-preview hr {
